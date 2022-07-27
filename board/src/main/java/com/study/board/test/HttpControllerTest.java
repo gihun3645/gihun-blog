@@ -9,21 +9,27 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class HttpControllerTest {
 
+    private static final String TAG = "HttpControllerTest : ";
+
     @GetMapping("/get")
     public String getTest(Member m) { // id=1&username=gihun&password=123&email=gihun@naver
+        // MessageConverter (스프링부트)
+        System.out.println(TAG+"getter"+m.getId());
+        m.
+        System.out.println(TAG+"setter"+m.getId());
         return "get 요청 : "+m.getId()+", "+m.getUsername()+", "+m.getPassword()+", "+m.getEmail();
     }
 
-    @PostMapping("/post")
-    public String postTest() {
+    @PostMapping("/post") // text/plain application/json
+    public String postTest(@RequestBody Member m) { // MessageConverter (스프링부트)
 
-        return "post 요청";
+        return "post 요청 : "+m.getId()+", "+m.getUsername()+", "+m.getPassword()+", "+m.getEmail();
     }
 
     @PutMapping("/put")
-    public String putTest() {
+    public String putTest(@RequestBody Member m) {
 
-        return "put 요청";
+        return "put 요청"+m.getId()+", "+m.getUsername()+", "+m.getPassword()+", "+m.getEmail();
     }
 
     @DeleteMapping("/delete")
