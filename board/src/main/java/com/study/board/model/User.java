@@ -1,14 +1,23 @@
 package com.study.board.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder // 빌더 패던
 // ORM -> Java(다른언어) Object -> 테이블로 매핑해주는 기술
 @Entity // User 클래스가 MySQL 테이블에 생성됨
+// @Entity는 제일 밑에 있는게 좋음
 public class User {
 
     @Id // Primary key
@@ -25,7 +34,7 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user'") // 안에 따옴표 넣어줘여함
+    @ColumnDefault("'user'") // 안에 따옴표 넣어줘야함
     private String role; // Enum을 쓰는게 좋다.// admin, user, manager 권한
 
     @CreationTimestamp // 시간이 자동으로 입력됨
