@@ -25,7 +25,7 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user'")
+    @ColumnDefault("'user'") // 안에 따옴표 넣어줘여함
     private String role; // Enum을 쓰는게 좋다.// admin, user, manager 권한
 
     @CreationTimestamp // 시간이 자동으로 입력됨
