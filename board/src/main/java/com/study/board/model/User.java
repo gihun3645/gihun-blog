@@ -18,6 +18,7 @@ import java.sql.Timestamp;
 // ORM -> Java(다른언어) Object -> 테이블로 매핑해주는 기술
 @Entity // User 클래스가 MySQL 테이블에 생성됨
 // @Entity는 제일 밑에 있는게 좋음
+//@DynamicInsert // insert시에 null인 필드를 제외시켜준다.
 public class User {
 
     @Id // Primary key
@@ -34,8 +35,10 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user'") // 안에 따옴표 넣어줘야함
-    private String role; // Enum을 쓰는게 좋다.// admin, user, manager 권한
+//    @ColumnDefault("user")
+    // DB는 RoleType이 없다.
+    @Enumerated(EnumType.STRING)
+    private RoleType role; // Enum을 쓰는게 좋다.// ADMIN, USER
 
     @CreationTimestamp // 시간이 자동으로 입력됨
     private Timestamp createDate;
