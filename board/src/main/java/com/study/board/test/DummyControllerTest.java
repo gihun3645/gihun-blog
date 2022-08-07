@@ -8,11 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -22,6 +20,33 @@ public class DummyControllerTest {
 
     @Autowired // 의존성 주입(DI)
     private UserRepository userRepository;
+
+    // save함수는 id를 전달하지 않으면 insert를 해주고
+    // save함수는 id를 전달하면 해당 id에 대한 데이터가 있으면 update를 해주고
+    // save함수는 id를 전달하면 해당 id에 대한 데이터가 없으면 insert를 한다.
+    // email, password
+
+    @Transactional
+    @PutMapping("/dummy/user/{id}") // GET PUT이라 알아서 구분함
+    public User updateUser(@PathVariable int id, @RequestBody User requestUser) {
+        // => json 데이터를 요청 => Java Object(MessageConvert의 Jackson 라이브러리가 반환해 받아줌)
+
+        System.out.println("password : " +requestUser.getPassword());
+        System.out.println("email : " + requestUser.getEmail());
+
+        // save를 굳이 쓰려면..
+        User user = userRepository.findById(id).orElseThrow(()->{
+            return new IllegalArgumentException("수정에 실패했습니다.");
+        }); // 자바는 파라미터에 함수를 집어 넣을 수 없음, 람다는 가능!
+        user.setPassword(requestUser.getPassword());
+        user.setEmail(requestUser.getEmail());
+
+        // userRepository.save(user);
+        // update를 할 때는 save를 쓰지 않음
+
+        // 더티 체킹
+        return null;
+    }
 
     // localhost:3000/dummy/user/
     @GetMapping("/dummy/users")
@@ -36,7 +61,7 @@ public class DummyControllerTest {
             direction = Sort.Direction.DESC)Pageable pageable) {
 
         Page<User> pagingUser = userRepository.findAll(pageable);
-        
+
         List<User> users = userRepository.findAll(pageable).getContent();
         return users;
     }
