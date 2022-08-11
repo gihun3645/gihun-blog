@@ -25,7 +25,7 @@ public class User {
     // 프로젝트에 연결된 DB의 넘버링 전략을 따라감
     private int id; // 시퀀스, auto_increment
 
-    @Column(nullable = false, length = 30) // 아이디가 없을 수 없음, 30자 제한
+    @Column(nullable = false, length = 30, unique = true) // 아이디가 없을 수 없음, 30자 제한, 중복거부
     private String username; // 아이디
 
     @Column(nullable = false, length = 100) // 해쉬를 변경할거임
