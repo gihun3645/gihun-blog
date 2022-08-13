@@ -32,7 +32,7 @@
 <br>
 
 <div class="container">
-
+    여기에 글자가 포함됩니다.
 </div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
