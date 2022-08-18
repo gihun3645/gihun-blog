@@ -1,7 +1,9 @@
 package com.study.board.controller.api;
 
 
+import com.study.board.controller.dto.ResDto;
 import com.study.board.model.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserApiController {
 
     @PostMapping("/api/user")
-    public int save(@RequestBody User user){
+    public ResDto<Integer> save(@RequestBody User user){
         System.out.println("UserApiController: save 호출됨");
-        return 1;
+        // 실제로 DB에 insert를 하고 아래에서 return이 되면 된다.
+        return new ResDto<Integer>(HttpStatus.OK, 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
 }
