@@ -13,6 +13,6 @@ import org.springframework.http.HttpStatus;
 @Builder
 public class ResDto<T> {
 
-    HttpStatus status;
+    int status;
     T data;
 }
