@@ -9,6 +9,6 @@ public class BoardController {
     @GetMapping("/")
     public String index() {
         // WEB-INF/views/index
-        return "index";
+        return "/index";
     }
 }

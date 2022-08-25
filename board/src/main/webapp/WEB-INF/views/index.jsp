@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
     <%@ include file="layout/header.jsp" %>
 
         <div class="container">
-            <div class="card m-2">
+            <div class="card m-2" style="width:400px">
+                <img class="card-img-top" src="https://avatars.githubusercontent.com/u/90669343?v=4" alt="Card image">
                 <div class="card-body">
-                    <h4 class="card-title">안녕하세요~ 블로그에 오신걸 환영합니다.</h4>
-                    <p class="card-text">저는 리눅스와 스프링을 주로 다루구요, 아래 깃허브에서 자세히 확인할 수 있습니다.</p>
+                    <h4 class="card-title">송바래</h4>
+                    <p class="card-text">자바 백엔드 개발자 지망생입니다.</p>
                     <p class="card-text">오늘도 좋은 하루 되세요 ^^</p>
                     <a href="https://github.com/gihun3645" class="btn btn-primary">깃허브 바로가기</a>
                 </div>
