@@ -22,6 +22,9 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">블로그</a>
+                    </li>
                         <a class="nav-link" href="/user/loginForm">로그인</a>
                     </li>
                     <li class="nav-item">
