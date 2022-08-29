@@ -7,6 +7,8 @@
         <title>송바래의 클라우드 여행</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="naver-site-verification" content="1d90cf1ec3ff40cb92bc644374ae1c720eda8b72" />
+<%--        네이버 사이트 등록--%>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
