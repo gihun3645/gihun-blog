@@ -19,8 +19,6 @@ public class UserApiController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private HttpSession session;
 
     @PostMapping("/api/user")
     public ResDto<Integer> save(@RequestBody User user){ // username, password, email
@@ -31,14 +29,15 @@ public class UserApiController {
         return new ResDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
 
-    @PostMapping("/api/user/login")
-    public ResDto<Integer> login(@RequestBody User user) {
-        System.out.println("UserApiController : login호출됨");
-        User principal = userService.로그인(user); // principal (접근주체)
-
-        if(principal != null) {
-            session.setAttribute("principal", principal);
-        }
-        return new ResDto<Integer>(HttpStatus.OK.value(), 1);
-    }
+    // 이건 안쓸거임
+//    @PostMapping("/api/user/login")
+//    public ResDto<Integer> login(@RequestBody User user, HttpSession session) {
+//        System.out.println("UserApiController : login호출됨");
+//        User principal = userService.로그인(user); // principal (접근주체)
+//
+//        if(principal != null) {
+//            session.setAttribute("principal", principal);
+//        }
+//        return new ResDto<Integer>(HttpStatus.OK.value(), 1);
+//    }
 }
