@@ -22,7 +22,6 @@
     </head>
 
     <body>
-        <h1>${principal}</h1>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <a class="navbar-brand" href="/">홈</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
