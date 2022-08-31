@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BoardController {
 
     @GetMapping({"", "/"})
-    public String index(@AuthenticationPrincipal PrincipalDetail principal) {
+    public String index() {
         // WEB-INF/views/index
-        System.out.println("로그인 사용자 아이디 : "+principal.getUsername());
+        System.out.println();
         return "/index";
     }
 }
