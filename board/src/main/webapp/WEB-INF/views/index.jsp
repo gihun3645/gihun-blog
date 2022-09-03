@@ -3,6 +3,7 @@
     <%@ include file="layout/header.jsp" %>
 
         <div class="container">
+
             <div class="card m-2" style="width:400px">
                 <img class="card-img-top" src="https://avatars.githubusercontent.com/u/90669343?v=4" alt="Card image">
                 <div class="card-body">
@@ -12,6 +13,16 @@
                     <a href="https://github.com/gihun3645" class="btn btn-primary">깃허브 바로가기</a>
                 </div>
             </div>
+
+            <c:forEach var="board" items="${boards}">
+                <div class="card m-2" style="width:400px">
+                    <div class="card-body">
+                        <h4 class="card-title">${board.title}</h4>
+                        <a href="#" class="btn btn-primary">상세보기</a>
+                    </div>
+                </div>
+            </c:forEach>
+
         </div>
 
 
