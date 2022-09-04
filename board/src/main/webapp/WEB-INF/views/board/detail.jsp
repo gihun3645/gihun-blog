@@ -4,9 +4,15 @@
 <div class="container">
 
     <button class="btn btn-secondary" onclick="history.back()">목록으로</button>
-    <button id="btn-update" class="btn btn-warning">수정</button>
-    <button id="btn-delete" class="btn btn-danger">삭제</button>
-    <br/>
+    <c:if test="${board.user.id == principal.user.id}">
+        <button id="btn-update" class="btn btn-warning">수정</button>
+        <button id="btn-delete" class="btn btn-danger">삭제</button>
+    </c:if>
+    <br/><br/>
+    <div>
+        글 번호: <span id="id"><i>${board.id}</i></span>
+        작성자: <span><i>${board.user.username}</i></span>
+    </div>
     <br/>
     <div class="form-group">
         <h3>${board.title}</h3>
@@ -16,11 +22,10 @@
         <div>${board.content}</div>
     </div>
     <hr/>
-
 </div>
 <script>
     $('.summernote').summernote({
-        placeholder: 'Hello Bootstrap 4',
+        placeholder: '내용을 입력하세요.',
         tabsize: 2,
     });
 </script>

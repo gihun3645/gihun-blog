@@ -25,7 +25,7 @@ public class SecurityConfigure implements fileterChain {
         http
                 .csrf().disable() // csrf 토큰 비활성 (테스트시 걸어두는게 좋음)
                 .authorizeRequests()
-                    .antMatchers("/", "/blog","/auth/**", "/js/**", "/css/**", "/image/**", "/dummy/**")
+                    .antMatchers("/", "/blog","/auth/**", "/js/**", "/css/**", "/image/**", "/dummy/**", "/board/{id}")
                     .permitAll()
                     .anyRequest()
                     .authenticated()
