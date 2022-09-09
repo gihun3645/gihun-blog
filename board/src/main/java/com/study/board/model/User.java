@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false, length = 30, unique = true) // 아이디가 없을 수 없음, 30자 제한, 중복거부
     private String username; // 아이디
 
-    @Column(nullable = false, length = 100) // 해쉬를 변경할거임
+    @Column(length = 100) // 해쉬를 변경할거임
     private String password;
 
     @Column(nullable = false, length = 50)
