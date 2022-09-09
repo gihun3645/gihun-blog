@@ -4,6 +4,10 @@ import com.study.board.model.RoleType;
 import com.study.board.model.User;
 import com.study.board.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +22,7 @@ public class UserService {
 
     @Autowired
     private BCryptPasswordEncoder encoder;
+
 
     // 서비스 함수
     @Transactional // 성공하면 커밋, 실패하면 롤백
@@ -40,8 +45,12 @@ public class UserService {
         String rawPassword = user.getPassword();
         String encPassword = encoder.encode(rawPassword);
         persisttance.setPassword(encPassword);
-//        이메일은 업데이트 안할거임
-//        persisttance.setEmail(user.getEmail());
+        persisttance.setEmail(user.getEmail());
+
+        // 세션 등록
+//        Authentication authentication = authenticationManager
+//                .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
         //  회원수정 함수 종료시 = 서비스 종료 = 트랜잭션 종료 = commit이 자동으로 됨
         // 영속화된 persistance 객체의 변화가 감지되면 더티체킹되어 update문을 날려줌
     }

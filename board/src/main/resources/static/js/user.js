@@ -40,7 +40,9 @@ let index = {
     update: function () {
         let data = {
             id: $("#id").val(),
-            password: $("#password").val()
+            password: $("#password").val(),
+            email: $("#email").val()
+
         }
 
         $.ajax({
