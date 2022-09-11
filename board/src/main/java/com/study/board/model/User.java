@@ -25,7 +25,7 @@ public class User {
     // 프로젝트에 연결된 DB의 넘버링 전략을 따라감
     private int id; // 시퀀스, auto_increment
 
-    @Column(nullable = false, length = 30, unique = true) // 아이디가 없을 수 없음, 30자 제한, 중복거부
+    @Column(nullable = false, length = 100, unique = true) // 아이디가 없을 수 없음, 30자 제한, 중복거부
     private String username; // 아이디
 
     @Column(length = 100) // 해쉬를 변경할거임
@@ -38,6 +38,8 @@ public class User {
     // DB는 RoleType이 없다.
     @Enumerated(EnumType.STRING)
     private RoleType role; // Enum을 쓰는게 좋다.// ADMIN, USER
+
+    private String oauth; // oauth인지 확인
 
     @CreationTimestamp // 시간이 자동으로 입력됨
     private Timestamp createDate;
