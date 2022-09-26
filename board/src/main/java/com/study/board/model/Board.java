@@ -1,5 +1,6 @@
 package com.study.board.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,7 +37,8 @@ public class Board {
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // 하나의 게시글을 여러개의 답변을 받을 수 있음
     // mappedBy : 연관관계의 주인이 아니다(FK가 아니다.) DB에 칼럼을 만들지 X
-    private List<Reply> reply;
+    @JsonIgnoreProperties({"board"})
+    private List<Reply> replys;
 
     @CreationTimestamp
     private Timestamp createDate;
