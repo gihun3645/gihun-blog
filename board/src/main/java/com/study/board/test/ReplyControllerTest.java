@@ -19,7 +19,8 @@ public class ReplyControllerTest {
     @Autowired
     private BoardRepository boardRepository;
 
-    @Autowired ReplyRepository replyRepository;
+    @Autowired
+    ReplyRepository replyRepository;
 
     @GetMapping("/test/board/{id}")
     public Board getBoard(@PathVariable int id) {
