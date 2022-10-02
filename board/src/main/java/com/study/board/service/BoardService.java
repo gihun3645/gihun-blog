@@ -1,10 +1,12 @@
 package com.study.board.service;
 
+import com.study.board.controller.dto.ReplySaveRequestDto;
 import com.study.board.model.Board;
 import com.study.board.model.Reply;
 import com.study.board.model.User;
 import com.study.board.repository.BoardRepository;
 import com.study.board.repository.ReplyRepository;
+import com.study.board.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +25,9 @@ public class BoardService
 
     @Autowired
     private ReplyRepository replyRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Transactional // 성공하면 커밋, 실패하면 롤백
     public void 글쓰기(Board board,User user)
@@ -64,16 +69,26 @@ public class BoardService
     }
 
     @Transactional
-    public void 댓글쓰기(User user, int boardId, Reply requestReply)
+    public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto)
     {
-        Board board = boardRepository.findById(boardId)
+        User user = userRepository.findById(replySaveRequestDto.getUserId())
                 .orElseThrow(()->{
-                    return new IllegalArgumentException("작성 실패: 아이디를 찾을 수 없습니다.");
+                    return new IllegalArgumentException("작성 실패: 유저 아이디를 찾을 수 없습니다.");
                 }); // 영속화 완료
 
-        requestReply.setUser(user);
-        requestReply.setBoard(board);
+        Board board = boardRepository.findById(replySaveRequestDto.getBoardId())
+                .orElseThrow(()->{
+                    return new IllegalArgumentException("작성 실패: 글 아이디를 찾을 수 없습니다.");
+                }); // 영속화 완료
 
-        replyRepository.save(requestReply);
+
+
+        Reply reply = Reply.builder()
+                        .user(user)
+                                .board(board)
+                                        .content(replySaveRequestDto.getContent())
+                                                .build();
+
+        replyRepository.save(reply);
     }
 }
