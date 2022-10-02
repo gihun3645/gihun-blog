@@ -2,11 +2,9 @@ package com.study.board.service;
 
 import com.study.board.controller.dto.ReplySaveRequestDto;
 import com.study.board.model.Board;
-import com.study.board.model.Reply;
 import com.study.board.model.User;
 import com.study.board.repository.BoardRepository;
 import com.study.board.repository.ReplyRepository;
-import com.study.board.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

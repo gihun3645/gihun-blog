@@ -29,9 +29,13 @@ let index = {
             dataType:"JSON"
             // 요청을 서버로해서 응답이 왔을 때 기본적을 모든 것이 문자열(생긴게 json이라면) => js오브젝트로 변경
         }).done(function (res) {
-            alert("회원가입이 완료되었습니다.")
-            // console.log(res);
-            location.href = "/";
+            if(res.status === 500)
+            {
+                alert("회원가입에 실패하였습니다.");
+            } else {
+                alert("회원가입이 완료되었습니다.")
+                console.log(res);
+            }
         }).fail(function (err) {
             alert(JSON.stringify(err));
         });
