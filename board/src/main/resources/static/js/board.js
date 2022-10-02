@@ -96,6 +96,20 @@ let index = {
         });
     },
 
+    replyDelete: function (boardId, replyId)
+    {
+        $.ajax({
+            type:"DELETE",
+            url:`/api/board/${boardId}/${replyId}`,
+            dataType:"JSON"
+        }).done(function (res) {
+            alert("삭제 완료되었습니다.")
+            location.href = `/board/${boardId}`;
+        }).fail(function (err) {
+            alert(JSON.stringify(err));
+        });
+    },
+
 }
 
 index.init();

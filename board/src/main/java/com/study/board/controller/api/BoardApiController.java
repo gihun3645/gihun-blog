@@ -48,4 +48,11 @@ public class BoardApiController {
         boardService.댓글쓰기(replySaveRequestDto);
         return new ResDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
+
+    @DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+    public ResDto<Integer> replyDelte(@PathVariable int replyId)
+    {
+        boardService.댓글삭제(replyId);
+        return new ResDto<Integer>(HttpStatus.OK.value(), 1);
+    }
 }
