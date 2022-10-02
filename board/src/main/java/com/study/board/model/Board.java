@@ -38,6 +38,7 @@ public class Board {
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // 하나의 게시글을 여러개의 답변을 받을 수 있음
     // mappedBy : 연관관계의 주인이 아니다(FK가 아니다.) DB에 칼럼을 만들지 X
     @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc")
     private List<Reply> replys;
 
     @CreationTimestamp

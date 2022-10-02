@@ -4,6 +4,7 @@ package com.study.board.controller.api;
 import com.study.board.config.auth.PrincipalDetail;
 import com.study.board.controller.dto.ResDto;
 import com.study.board.model.Board;
+import com.study.board.model.Reply;
 import com.study.board.model.User;
 import com.study.board.service.BoardService;
 import com.study.board.service.UserService;
@@ -35,5 +36,12 @@ public class BoardApiController {
     public ResDto<Integer> update(@PathVariable int id, @RequestBody Board board) {
         boardService.글수정하기(id, board);
         return new ResDto<Integer>(HttpStatus.OK.value(), 1);
+    }
+
+    @PostMapping("/api/board/{boardId}/reply")
+    public ResDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal)
+    {
+        boardService.댓글쓰기(principal.getUser(), boardId, reply);
+        return new ResDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
 }
