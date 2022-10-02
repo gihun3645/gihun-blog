@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ReplyObjectTest
 {
-    @Test 
+    @Test
     public void 투스트링테스트()
     {
         Reply reply = Reply.builder()
