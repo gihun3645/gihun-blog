@@ -100,7 +100,7 @@ let index = {
     {
         $.ajax({
             type:"DELETE",
-            url:`/api/board/${boardId}/${replyId}`,
+            url:`/api/board/${boardId}/reply/${replyId}`,
             dataType:"JSON"
         }).done(function (res) {
             alert("삭제 완료되었습니다.")
@@ -109,6 +109,8 @@ let index = {
             alert(JSON.stringify(err));
         });
     },
+
+
 
 }
 

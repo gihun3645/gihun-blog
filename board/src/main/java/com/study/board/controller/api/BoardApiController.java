@@ -5,10 +5,7 @@ import com.study.board.config.auth.PrincipalDetail;
 import com.study.board.controller.dto.ReplySaveRequestDto;
 import com.study.board.controller.dto.ResDto;
 import com.study.board.model.Board;
-import com.study.board.model.Reply;
-import com.study.board.model.User;
 import com.study.board.service.BoardService;
-import com.study.board.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -50,7 +47,7 @@ public class BoardApiController {
     }
 
     @DeleteMapping("/api/board/{boardId}/reply/{replyId}")
-    public ResDto<Integer> replyDelte(@PathVariable int replyId)
+    public ResDto<Integer> replyDelete(@PathVariable int replyId)
     {
         boardService.댓글삭제(replyId);
         return new ResDto<Integer>(HttpStatus.OK.value(), 1);
