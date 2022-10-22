@@ -1,4 +1,4 @@
 package com.study.board.config;
 
-public interface fileterChain {
+public interface filterChain {
 }

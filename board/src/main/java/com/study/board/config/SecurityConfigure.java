@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration //빈등록 (IoC관리)
 @EnableWebSecurity //security 필터 등록
 @EnableGlobalMethodSecurity(prePostEnabled = true) //특정 주소를 접근을 하면 권한 및 인증을 미리 체크하겠다는 뜻
-public class SecurityConfigure implements fileterChain {
+public class SecurityConfigure implements filterChain {
 
     @Bean
     public AuthenticationManager authenticationManager(
