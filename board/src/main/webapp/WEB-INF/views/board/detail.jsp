@@ -20,7 +20,7 @@
     </div>
     <hr/>
     <div class="form-group">
-        <div>${board.content}</div>
+        ${board.content}
     </div>
     <hr/>
 
@@ -58,11 +58,18 @@
 </div>
 
 
+<%--<script>--%>
+<%--    $('.summernote').summernote({--%>
+<%--        placeholder: '내용을 입력하세요.',--%>
+<%--        tabsize: 2,--%>
+<%--    });--%>
+<%--</script>--%>
 <script>
-    $('.summernote').summernote({
-        placeholder: '내용을 입력하세요.',
-        tabsize: 2,
+    const viewer = new toastui.Editor({
+        el: document.querySelector('#viewer'),
+        initialValue: content
     });
+
 </script>
 <script src="/js/board.js"></script>
 

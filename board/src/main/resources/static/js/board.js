@@ -17,8 +17,10 @@ let index = {
     save: function () {
         let data = {
             title: $("#title").val(),
-            content: $("#content").val()
+            content: editor.getHTML(),
         }
+
+
 
         $.ajax({
             type:"POST",
@@ -30,7 +32,7 @@ let index = {
             alert("등록이 완료되었습니다.")
             location.href = "/";
         }).fail(function (err) {
-            alert(JSON.stringify(err));
+            alert(JSON.stringify(data));
         });
     },
 
@@ -45,7 +47,7 @@ let index = {
             alert("삭제가 완료되었습니다.")
             location.href = "/";
         }).fail(function (err) {
-            alert(JSON.stringify(err));
+            alert(JSON.stringify(data));
         });
     },
 
