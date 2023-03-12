@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 // 스프링이 컴포넌트 스캔을 통해서 Bean에 등록을 해줌. IoC(메모리에 대신 띄워줌) 해준다.
 @Service
 // autowired를 붙이지 않고 사용하기
@@ -43,13 +44,22 @@ public class BoardService
         return boardRepository.findAll(pageable);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public Board 글상세보기(int id)
     {
-        return boardRepository.findById(id)
+//        return boardRepository.findById(id)
+//                .orElseThrow(()->{
+//                    return new IllegalArgumentException("글 살세보기 실패:아이디를 찾을 수 없습니다.");
+//                });
+        Board board = boardRepository.findById(id)
                 .orElseThrow(()->{
                     return new IllegalArgumentException("글 살세보기 실패:아이디를 찾을 수 없습니다.");
                 });
+
+        // 조회수 증가
+        board.setCount(board.getCount() + 1);
+        boardRepository.save(board);
+        return board;
     }
 
     @Transactional
