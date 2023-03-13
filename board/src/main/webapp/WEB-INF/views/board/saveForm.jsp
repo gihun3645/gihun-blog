@@ -40,16 +40,7 @@
         el: document.querySelector("#editor"),
         height: "500px",
         initialEditType: "wysiwyg",
-        // placeholder: "내용을 입력해주세요",
-        // hooks: {
-        //     addImageBlobHook: function (blob, callback) {
-        //         const formData = new FormData();
-        //         formData.append("image", blob);
-        //         formData.append("uri", window.location.pathname);
-        //         const imageURL = imageUpload(formData);
-        //         callback(imageURL, "image");
-        //     },
-        // },
+        placeholder: "내용을 입력해주세요",
         language: "ko-KR",
     });
 </script>

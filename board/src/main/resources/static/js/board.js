@@ -56,7 +56,7 @@ let index = {
 
         let data = {
             title: $("#title").val(),
-            content: $("#content").val()
+            content: editor.getHTML(),
         }
 
         $.ajax({

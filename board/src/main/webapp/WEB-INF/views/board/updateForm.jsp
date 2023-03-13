@@ -10,15 +10,18 @@
     </div>
 
     <div class="form-group">
-        <textarea class="form-control summernote" rows="5" id="content">${board.content}</textarea>
+        <div class="form-control" id="editor">${board.content}</div>
     </div>
 </form>
 <button id="btn-update" class="btn btn-primary">등록</button>
 </div>
 <script>
-    $('.summernote').summernote({
-        placeholder: '내용을 입력하세요.',
-        tabsize: 2,
+    const editor = new toastui.Editor({
+        el: document.querySelector("#editor"),
+        height: "500px",
+        initialEditType: "wysiwyg",
+        placeholder: "내용을 입력해주세요",
+        language: "ko-KR",
     });
 </script>
 <script src="/js/board.js"></script>
