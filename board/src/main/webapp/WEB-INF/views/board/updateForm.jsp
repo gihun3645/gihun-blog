@@ -15,13 +15,16 @@
 </form>
 <button id="btn-update" class="btn btn-primary">등록</button>
 </div>
+<!-- TOAST UI 하이라이트 플러그인 -->
+<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
 <script>
+    const Editor = toastui.Editor;
     const editor = new toastui.Editor({
         el: document.querySelector("#editor"),
         height: "500px",
         initialEditType: "markdown",
-        placeholder: "내용을 입력해주세요",
         language: "ko-KR",
+        plugins: [Editor.plugin.codeSyntaxHighlight]
     });
 </script>
 <script src="/js/board.js"></script>

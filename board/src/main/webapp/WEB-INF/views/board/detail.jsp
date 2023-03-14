@@ -27,7 +27,6 @@
     </div>
     <hr/>
 
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"></script>
 
     <div class="card">
 
@@ -62,8 +61,10 @@
 
 
 </div>
-
-
+<!-- Toast UI viewer -->
+<script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.js"></script>
+<!-- Toast UI 하이라이트 플러그인 -->
+<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
 <script>
 
     const viewer = new toastui.Editor({
