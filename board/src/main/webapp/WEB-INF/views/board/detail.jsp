@@ -21,10 +21,13 @@
         <h3>${board.title}</h3>
     </div>
     <hr/>
+<%--    토스트 UI 적용공간--%>
     <div class="form-group" id="viewer">
-        ${board.content}
+
     </div>
     <hr/>
+
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"></script>
 
     <div class="card">
 
@@ -62,11 +65,9 @@
 
 
 <script>
-    const viewer = new toastui.Editor.factory({
+    const viewer = new toastui.Editor({
         el: document.querySelector('#viewer'),
-        viewer: true,
-        height: '500px',
-        initialValue: content
+        initialValue:  `${board.content}`
     });
 
     console.log(viewer);
