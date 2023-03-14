@@ -30,9 +30,12 @@ let index = {
             dataType:"JSON"
         }).done(function (res) {
             alert("등록이 완료되었습니다.")
-            location.href = "/";
+            location.href = "/blog";
         }).fail(function (err) {
-            alert(JSON.stringify(data));
+            // alert(JSON.stringify(err));
+            // 로그인 페이지로 이동
+            alert("로그인 해주세요.");
+            location.href = "/auth/loginForm";
         });
     },
 
@@ -45,7 +48,7 @@ let index = {
             dataType:"JSON"
         }).done(function (res) {
             alert("삭제가 완료되었습니다.")
-            location.href = "/";
+            location.href = "/blog";
         }).fail(function (err) {
             alert(JSON.stringify(data));
         });
@@ -53,6 +56,7 @@ let index = {
 
     update: function () {
         let id = $("#id").val();
+        console.log(id);
 
         let data = {
             title: $("#title").val(),
@@ -67,9 +71,13 @@ let index = {
             dataType:"JSON"
         }).done(function (res) {
             alert("등록이 완료되었습니다.")
-            location.href = "/";
+            // 절대경로
+            location.href = `/board/`+id;
         }).fail(function (err) {
-            alert(JSON.stringify(err));
+            // alert(JSON.stringify(err));
+            // 로그인 페이지로 이동
+            alert("로그인 해주세요.");
+            location.href = "/auth/loginForm";
         });
     },
 
@@ -94,7 +102,10 @@ let index = {
             alert("등록 완료되었습니다.")
             location.href = `/board/${data.boardId}`;
         }).fail(function (err) {
-            alert(JSON.stringify(err));
+            // alert(JSON.stringify(err));
+            // 로그인 페이지로 이동
+            alert("로그인 해주세요.");
+            location.href = "/auth/loginForm";
         });
     },
 
@@ -106,7 +117,7 @@ let index = {
             dataType:"JSON"
         }).done(function (res) {
             alert("삭제 완료되었습니다.")
-            location.href = `/board/${boardId}`;
+            location.href = "/blog";
         }).fail(function (err) {
             alert(JSON.stringify(err));
         });
