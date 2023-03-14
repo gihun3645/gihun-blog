@@ -21,7 +21,7 @@
         <h3>${board.title}</h3>
     </div>
     <hr/>
-    <div class="form-group">
+    <div class="form-group" id="viewer">
         ${board.content}
     </div>
     <hr/>
@@ -47,6 +47,7 @@
                 <div>${reply.content}</div>
                 <div class="d-flex">
                     <div class="font-italic">작성자 : ${reply.user.username}&nbsp</div>
+                    <div class="font-italic">작성시간 : ${reply.createDate}&nbsp</div>
                     <c:if test="${board.user.id == principal.user.id}">
                     <button onClick="index.replyDelete(${board.id}, ${reply.id})"class="badge">삭제</button>
                     </c:if>
@@ -60,17 +61,15 @@
 </div>
 
 
-<%--<script>--%>
-<%--    $('.summernote').summernote({--%>
-<%--        placeholder: '내용을 입력하세요.',--%>
-<%--        tabsize: 2,--%>
-<%--    });--%>
-<%--</script>--%>
 <script>
-    const viewer = new toastui.Editor({
+    const viewer = new toastui.Editor.factory({
         el: document.querySelector('#viewer'),
+        viewer: true,
+        height: '500px',
         initialValue: content
     });
+
+    console.log(viewer);
 
 </script>
 <script src="/js/board.js"></script>
