@@ -60,7 +60,7 @@ let index = {
 
         let data = {
             title: $("#title").val(),
-            content: instance.getHTML(),
+            content: editor.getHTML(),
         }
 
         $.ajax({
