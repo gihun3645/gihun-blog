@@ -23,7 +23,7 @@
     <hr/>
 <%--    토스트 UI 적용공간--%>
     <div class="form-group" id="viewer">
-
+        ${board.content}
     </div>
     <hr/>
 
@@ -65,12 +65,12 @@
 
 
 <script>
+
     const viewer = new toastui.Editor({
         el: document.querySelector('#viewer'),
-        initialValue:  `${board.content}`
+        viewer: true,
     });
 
-    console.log(viewer);
 
 </script>
 <script src="/js/board.js"></script>
