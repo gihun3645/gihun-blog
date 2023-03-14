@@ -15,7 +15,7 @@
         </div>
 
         <button id="btn-login" class="btn btn-primary">로그인</button>
-        <a href="https://Kauth.KaKao.com/oauth/authorize?client_id=8a6d5178b09b361a2c830eb2d1215108&redirect_uri=http://localhost:8080/auth/KaKao/callback&response_type=code">
+        <a href="https://Kauth.KaKao.com/oauth/authorize?client_id=6c26fb409d9a6682ca8ce4be8ced96ac&redirect_uri=https://gihun-blog.com/auth/KaKao/callback&response_type=code">
             <img height="38px" src="/image/kakao_login_medium.png">
         </a>
     </form>

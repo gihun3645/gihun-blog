@@ -70,8 +70,8 @@ public class UserController {
         // HttpBody 오브젝트 생성
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
-        params.add("client_id","8a6d5178b09b361a2c830eb2d1215108");
-        params.add("redirect_uri", "http://localhost:8080/auth/KaKao/callback");
+        params.add("client_id","6c26fb409d9a6682ca8ce4be8ced96ac");
+        params.add("redirect_uri", "https://gihun-blog.com/auth/KaKao/callback");
         params.add("code", code);
 
         // HttpHeader와 HttpBody를 하나의 오브젝트에 담기
