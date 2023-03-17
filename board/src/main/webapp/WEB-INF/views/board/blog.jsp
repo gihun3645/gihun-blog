@@ -4,12 +4,14 @@
 
         <div class="container">
 
+
             <c:forEach var="board" items="${boards.content}">
                 <div class="card m-2" style="width:400px">
                     <div class="card-body">
                         <h4 class="card-title">${board.title}</h4>
                         <a href="/board/${board.id}" class="btn btn-primary">상세보기</a>
                     </div>
+
                 </div>
             </c:forEach>
 

@@ -32,11 +32,13 @@ public class BoardService
 
 
     @Transactional // 성공하면 커밋, 실패하면 롤백
-    public void 글쓰기(Board board,User user)
+    public Board 글쓰기(Board board, User user)
     { // title, content
         board.setCount(0);
         board.setUser(user);
+        board.setId(board.getId());
         boardRepository.save(board);
+        return board;
     }
 
     @Transactional(readOnly = true)

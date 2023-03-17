@@ -21,7 +21,9 @@ public class BoardApiController {
     @PostMapping("/api/board")
     public ResDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal){
         boardService.글쓰기(board, principal.getUser());
-        return new ResDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
+        System.out.println(board.getId());
+        // 아이디값도 리턴
+        return new ResDto<Integer>(HttpStatus.OK.value(), board.getId()); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
 
     @DeleteMapping("/api/board{id}")

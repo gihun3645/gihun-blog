@@ -20,17 +20,16 @@ let index = {
             content: editor.getHTML(),
         }
 
-
-
         $.ajax({
             type:"POST",
             url:"/api/board",
             data:JSON.stringify(data), // http body 데이터
             contentType: "application/json; charset=utf-8",
-            dataType:"JSON"
+            dataType:"JSON",
         }).done(function (res) {
+            // 글 작성 후, 해당 글로 리다이렉트
             alert("등록이 완료되었습니다.")
-            location.href = "/blog";
+            location.href = "/board/"+res.data;
         }).fail(function (err) {
             // alert(JSON.stringify(err));
             // 로그인 페이지로 이동
@@ -38,6 +37,8 @@ let index = {
             location.href = "/auth/loginForm";
         });
     },
+
+
 
     deleteById: function() {
         let id =$("#id").text();
@@ -61,6 +62,7 @@ let index = {
         let data = {
             title: $("#title").val(),
             content: editor.getHTML(),
+            boardId: $("#boardId").val(),
         }
 
         $.ajax({
@@ -70,9 +72,10 @@ let index = {
             contentType: "application/json; charset=utf-8",
             dataType:"JSON"
         }).done(function (res) {
+            console.log(data.boardId);
             alert("등록이 완료되었습니다.")
             // 절대경로
-            location.href = `/board/`+id;
+            location.href = `/board/${data.boardId}`;
         }).fail(function (err) {
             // alert(JSON.stringify(err));
             // 로그인 페이지로 이동
