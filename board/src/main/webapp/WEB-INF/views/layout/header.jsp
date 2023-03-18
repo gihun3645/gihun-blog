@@ -13,8 +13,14 @@
     <title>송바래의 클라우드 여행</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="naver-site-verification" content="1d90cf1ec3ff40cb92bc644374ae1c720eda8b72"/>
     <%--네이버 사이트 등록--%>
+    <meta name="naver-site-verification" content="1d90cf1ec3ff40cb92bc644374ae1c720eda8b72"/>
+    <%-- 메타데이터 등록 --%>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="송바래의 클라우드 여행">
+    <meta property="og:url" content="gihun-blog.com">
+    <meta property="og:description" content="가성비를 추구하는 개발 이야기">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/90669343?s=400&u=7b0c6bde2dbc104bbabf198c674dda25a82cdd7a&v=4">
 
     <%--제이쿼리--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
