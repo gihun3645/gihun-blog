@@ -35,7 +35,8 @@ public class BoardApiController {
     @PutMapping("/api/board{id}")
     public ResDto<Integer> update(@PathVariable int id, @RequestBody Board board) {
         boardService.글수정하기(id, board);
-        return new ResDto<Integer>(HttpStatus.OK.value(), 1);
+        System.out.println(id);
+        return new ResDto<Integer>(HttpStatus.OK.value(),id);
     }
 
     // 데이터를 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋다.

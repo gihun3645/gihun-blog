@@ -57,7 +57,6 @@ let index = {
 
     update: function () {
         let id = $("#id").val();
-        console.log(id);
 
         let data = {
             title: $("#title").val(),
@@ -72,10 +71,9 @@ let index = {
             contentType: "application/json; charset=utf-8",
             dataType:"JSON"
         }).done(function (res) {
-            console.log(data.boardId);
             alert("등록이 완료되었습니다.")
             // 절대경로
-            location.href = `/board/${data.boardId}`;
+            location.href = "/board/"+res.data;
         }).fail(function (err) {
             // alert(JSON.stringify(err));
             // 로그인 페이지로 이동

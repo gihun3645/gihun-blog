@@ -70,7 +70,7 @@ public class BoardService
     }
 
     @Transactional
-    public void 글수정하기(int id, Board requestBoard)
+    public Board 글수정하기(int id, Board requestBoard)
     {
         Board board = boardRepository.findById(id)
                 .orElseThrow(()->{
@@ -78,7 +78,9 @@ public class BoardService
                 }); // 영속화 완료
         board.setTitle(requestBoard.getTitle());
         board.setContent(requestBoard.getContent());
-        // 해당 함수 종료시(Service가 종료될 때) 트랜잭션이 종료됩니다. 이때 더티체킹 - 자동 업데이트가 됨. db flush
+        board.setId(board.getId());
+        boardRepository.save(board);
+        return board;
     }
 
     @Transactional
