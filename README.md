@@ -3,19 +3,17 @@
 <hr>
 
 ## Introdue
-<p/>
- -  저의 서브블로그입니다.
-<br/>   
- - 백엔드, 리눅스 관련글을 올릴예정입니다.
+ -  저의 자기소개와 몇개의 글을 올리는 서브 블로그입니다.
  
  ## 구성
- <p/>
- - 백엔드 : Spring
- <br/>
+ - 백엔드 : Spring Boot, Java 11, MySQL
+ - 프론트엔드 : JSP, Bootstrap
+ - 웹서버 : Nginx(도메인 연결)
  - 서버 : Oracle cloud 1CPU 1GB RAM
+ - 보안 : Spring Security, Let's Encrypt
 
-
-<hr>
+## 기능
+- 카카오 로그인, 글쓰기, 댓글 쓰기 
 
 ## 업데이트 사항
 
