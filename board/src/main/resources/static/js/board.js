@@ -118,7 +118,7 @@ let index = {
             dataType:"JSON"
         }).done(function (res) {
             alert("삭제 완료되었습니다.")
-            location.href = "/blog";
+            location.href = `/blog/${boardId}`;
         }).fail(function (err) {
             alert(JSON.stringify(err));
         });
