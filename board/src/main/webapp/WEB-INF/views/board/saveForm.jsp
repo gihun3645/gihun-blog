@@ -25,7 +25,7 @@
     const editor = new Editor({
         el: document.querySelector("#editor"),
         height: "600px",
-        initialEditType: "markdown",
+        initialEditType: "wysiwyg",
         placeholder: "내용을 입력해주세요",
         language: "ko-KR",
         plugins: [Editor.plugin.codeSyntaxHighlight]
