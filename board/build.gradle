@@ -15,6 +15,11 @@ configurations {
 	}
 }
 
+// plain 파일을 생성하지 않음
+war {
+	enabled = false
+}
+
 repositories {
 	mavenCentral()
 }
