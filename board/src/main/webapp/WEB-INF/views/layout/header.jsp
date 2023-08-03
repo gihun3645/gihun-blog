@@ -12,7 +12,7 @@
 <head>
     <title>송바래의 클라우드 여행</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/90669343?v=4">
 
     <%--네이버 사이트 등록--%>
